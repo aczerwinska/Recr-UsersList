@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 	http_basic_authenticate_with name: "aga", password: "secret", except: [:index, :show]
 
 	def index
-    	@users = User.all
+    	@search = User.search(params[:q])
+    	@users = @search.result
   	end
 
 	def new
