@@ -1,13 +1,15 @@
 <h1>Listing users</h1>
 
 <%= link_to 'Add', new_user_path %>
+
+
  
 <table>
   <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Email</th>
-    <th>Password</th>
+    <th><%= sort_link @search, :firstname, "Name" %></th>
+    <th><%= sort_link @search, :surname, "Surname" %></th>
+    <th><%= sort_link @search, :email, "Email" %></th>
+    <th><%= sort_link @search, :password, "Password" %></th>
   </tr>
  
   <% @users.each do |user| %>
