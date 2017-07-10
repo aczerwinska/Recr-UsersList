@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 
-<%= link_to 'Add', new_user_path %>
+<%= button_to 'Add', new_user_path, method: :get%>
 
 <table>
   <tr>
@@ -12,14 +12,19 @@
  
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.firstname %></td>
-      <td><%= user.surname %></td>
-      <td><%= user.email %></td>
-      <td><%= user.password %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user_path(user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <td class="dane"><%= user.firstname %></td>
+      <td class="dane"><%= user.surname %></td>
+      <td class="dane"><%= user.email %></td>
+      <td class="dane"><%= user.password %></td>
+      <td>
+        <table class="links">
+          <tr>
+            <%= link_to 'Edit', edit_user_path(user), method: :get%>
+            <br>
+            <%= link_to 'Destroy', user_path(user),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+          </tr>
+        </table>
   <% end %>
 </table>
